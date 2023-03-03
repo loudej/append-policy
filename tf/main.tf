@@ -22,4 +22,11 @@ resource "azurerm_redis_cache" "alice" {
 
   redis_configuration {
   }
+
+  // https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#ignore_changes
+  lifecycle {
+    ignore_changes = [
+      public_network_access_enabled,
+    ]
+  }
 }
